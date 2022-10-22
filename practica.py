@@ -39,6 +39,14 @@ def catalogar(lista):
     for vehiculo in lista:
         print(type(vehiculo).__name__, vehiculo.__dict__)
 lista=[a,b,c,d,e]
+def catalogar1(lista):
+    contar=0
+    nruedas=0
+    for vehiculo in lista:
+        if nruedas==vehiculo.ruedas:
+            print(vehiculo)
+            contar+=1
+        print(f"Se ha encontrado {contar} vehículos con {nruedas} ruedas:")
 catalogar(lista)
-    
+catalogar1(lista)
 
