@@ -5,7 +5,7 @@ class Vehiculo():
     def __str__(self):
         return "color: {} , ruedas: {}".format(self.color, self.ruedas)
 class Coche(Vehiculo):
-    def __init__(self, color, ruedas,velocidad,cilindrada):
+    def __init__(self, color, ruedas, velocidad, cilindrada):
         Vehiculo.__init__(self,color, ruedas)
         self.velocidad=velocidad
         self.cilindrada=cilindrada
@@ -18,10 +18,18 @@ class Bicicleta(Vehiculo):
     def __str__(self):
         return Vehiculo.__str__(self)+ ", tipo: {} ".format(self.tipo)
 class Caminoneta(Coche):
-    def __init__(self, color, ruedas, velocidad, cilindrada,carga):
-        Coche.__init__(color, ruedas, velocidad, cilindrada)
+    def __init__(self, color, ruedas, velocidad,cilindrada, carga):
+        Coche.__init__(self,color,ruedas,velocidad,cilindrada)
         self.carga=carga
     def __str__(self):
         return Coche.__str__(self)+", carga: {} kg".format(self.carga)
-c=Caminoneta("azul",4,120,100,80)
+class Motocicleta(Bicicleta):
+    def __init__(self, color, ruedas, tipo, velocidad,cilindrada):
+        super().__init__(color, ruedas, tipo)
+        self.velocidad=velocidad
+        self.cilindrada=cilindrada
+    def __str__(self):
+        return Bicicleta.__str__(self)+", {} km/h, {} cc".format(self.velocidad,self.cilindrada)
+c=Motocicleta("rojo",0,"deportiva",250,1045)
 print(c)
+
