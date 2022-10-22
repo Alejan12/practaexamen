@@ -25,11 +25,20 @@ class Caminoneta(Coche):
         return Coche.__str__(self)+", carga: {} kg".format(self.carga)
 class Motocicleta(Bicicleta):
     def __init__(self, color, ruedas, tipo, velocidad,cilindrada):
-        super().__init__(color, ruedas, tipo)
+        Bicicleta.__init__(self,color,ruedas,tipo)
         self.velocidad=velocidad
         self.cilindrada=cilindrada
     def __str__(self):
         return Bicicleta.__str__(self)+", {} km/h, {} cc".format(self.velocidad,self.cilindrada)
-c=Motocicleta("rojo",0,"deportiva",250,1045)
-print(c)
+a=Vehiculo("azul",4)
+b=Coche("azul",4,180,225)
+c=Bicicleta("azul",2,"urbana")
+d=Caminoneta("azul",4,150,100,450)
+e=Motocicleta("azul",2,"deportiva",260,1045)
+def catalogar(lista):
+    for vehiculo in lista:
+        print(type(vehiculo).__name__, vehiculo.__dict__)
+lista=[a,b,c,d,e]
+catalogar(lista)
+    
 
